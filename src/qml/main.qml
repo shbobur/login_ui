@@ -11,44 +11,73 @@ ApplicationWindow {
     height: 600
     title: "Login Portfolio"
 
-    // Style switcher component
-    Rectangle {
-        anchors {
-            top: parent.top
-            right: parent.right
-            margins: 10
-        }
-        width: styleCombo.width + 20
-        height: styleCombo.height + 10
-        color: StyleSystem.current().surfaceColor
-        radius: StyleSystem.current().borderRadius
-
-        ComboBox {
-            id: styleCombo
-            anchors.centerIn: parent
-            model: ["modern", "neumorphic", "glassmorphic", "material", "gaming"]
-            currentIndex: model.indexOf(StyleSystem.currentStyle)
-            onCurrentTextChanged: StyleSystem.switchStyle(currentText)
-        }
+    function switchStyle(styleName) {
+        StyleSystem.switchStyle(styleName)
     }
 
+    menuBar: MenuBar {
+        Menu {
+            title: qsTr("&Styles")
+            ActionGroup { 
+                id: styleGroup 
+                exclusive: true
+            }
+            Action { 
+                text: qsTr("&Modern"); 
+                onTriggered: switchStyle("modern") 
+                checkable: true
+                ActionGroup.group: styleGroup
+            }
+            Action { 
+                text: qsTr("&Neumorphic"); 
+                onTriggered: switchStyle("neumorphic") 
+                checkable: true
+                ActionGroup.group: styleGroup
+            }
+            Action { 
+                text: qsTr("G&lassmorphic"); 
+                onTriggered: switchStyle("glassmorphic") 
+                checkable: true
+                ActionGroup.group: styleGroup
+            }
+            Action { 
+                text: qsTr("M&aterial"); 
+                onTriggered: switchStyle("material") 
+                checkable: true
+                ActionGroup.group: styleGroup
+            }
+            Action { 
+                text: qsTr("&Gaming"); 
+                onTriggered: switchStyle("gaming") 
+                checkable: true
+                ActionGroup.group: styleGroup
+            }
+            MenuSeparator { }
+            Action { 
+                text: qsTr("&Quit"); 
+                onTriggered: Qt.quit() 
+                checkable: false
+            }
+        }       
+    }
+    
     Rectangle {
         anchors.fill: parent
-        color: StyleSystem.current().backgroundColor
 
+        color: StyleSystem.current().backgroundColor
+        
         ColumnLayout {
             anchors.centerIn: parent
             width: parent.width * 0.8
             spacing: 20
-
+            
             Image {
                 Layout.alignment: Qt.AlignHCenter
                 source: "qrc:/assets/images/logo.png"
-                Layout.preferredWidth: 140  // 30% of parent width
-                Layout.preferredHeight: 140// Make it square
-                fillMode: Image.PreserveAspectFit
+                Layout.preferredWidth: 140
+                Layout.preferredHeight: 140
             }
-
+            
             Label {
                 Layout.alignment: Qt.AlignHCenter
                 text: "Welcome Back"
@@ -57,18 +86,18 @@ ApplicationWindow {
                 font.family: StyleSystem.current().fontFamily
                 color: StyleSystem.current().textColor
             }
-
+            
             StyledInput {
                 Layout.fillWidth: true
                 placeholderText: "Email or Username"
             }
-
+            
             StyledInput {
                 Layout.fillWidth: true
                 placeholderText: "Password"
                 isPassword: true
             }
-
+            
             StyledButton {
                 Layout.fillWidth: true
                 text: "Log In"
@@ -76,4 +105,5 @@ ApplicationWindow {
             }
         }
     }
+
 }

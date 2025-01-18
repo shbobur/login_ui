@@ -12,8 +12,14 @@ Button {
     background: Rectangle {
         id: bgRect
         radius: StyleSystem.current().borderRadius
-        color: control.pressed ? StyleSystem.current().accentColor : StyleSystem.current().primaryColor
+        color: {
+            if (control.pressed) return StyleSystem.current().accentColor
+            if (control.hovered) return Qt.darker(StyleSystem.current().primaryColor, 1.1)
+            return StyleSystem.current().primaryColor
+        }
 
+        border.color: control.focus ? StyleSystem.current().borderColor : "transparent"
+        border.width: control.focus ? StyleSystem.current().borderWidth : 0
         // Gaming style glow effect
         Rectangle {
             visible: StyleSystem.currentStyle === "gaming"
@@ -36,12 +42,31 @@ Button {
         }
 
         // Neumorphic pressed state
-        states: State {
-            name: "pressed"
-            when: control.pressed && StyleSystem.currentStyle === "neumorphic"
-            PropertyChanges {
-                target: bgRect
-                scale: 0.98
+        states: [
+            State {
+                name: "pressed"
+                when: control.pressed && StyleSystem.currentStyle === "neumorphic"
+                PropertyChanges {
+                    target: bgRect
+                    scale: 0.98
+                }
+            },
+            State {
+                name: "hovered"
+                when: control.hovered && !control.pressed && StyleSystem.currentStyle === "neumorphic"
+                PropertyChanges {
+                    target: bgRect
+                    scale: 1.1
+                }
+            }
+        ]
+
+        // Add transitions for smooth scaling
+        transitions: Transition {
+            NumberAnimation {
+                properties: "scale"
+                duration: 150
+                easing.type: Easing.OutCubic
             }
         }
 

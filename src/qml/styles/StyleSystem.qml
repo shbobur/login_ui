@@ -16,7 +16,7 @@ QtObject {
             shadowColor: "#20000000",
             blurRadius: 10,
             borderWidth: 1,
-            borderColor: "#FFFFFF30",
+            borderColor: "#aaaa29",
             elevation: 2,
             fontFamily: "Roboto",
             glowColor: "#00FF6666"
