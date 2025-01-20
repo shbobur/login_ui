@@ -9,7 +9,7 @@ ApplicationWindow {
     visible: true
     width: 400
     height: 600
-    title: "Login Portfolio"
+    title: "Login"
 
     function switchStyle(styleName) {
         StyleSystem.switchStyle(styleName)
@@ -26,6 +26,7 @@ ApplicationWindow {
                 text: qsTr("&Modern"); 
                 onTriggered: switchStyle("modern") 
                 checkable: true
+                checked: true
                 ActionGroup.group: styleGroup
             }
             Action { 
@@ -80,7 +81,7 @@ ApplicationWindow {
             
             Label {
                 Layout.alignment: Qt.AlignHCenter
-                text: "Welcome Back"
+                text: "Welcome!"
                 font.pixelSize: 24
                 font.bold: true
                 font.family: StyleSystem.current().fontFamily

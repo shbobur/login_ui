@@ -11,6 +11,8 @@
         <file>src/qml/styles/StyleSystem.qml</file>
 
         <file>assets/images/logo.png</file>
+        <file>assets/images/eye.png</file>
+        <file>assets/images/eye-off.png</file>
 
     </qresource>
 </RCC>

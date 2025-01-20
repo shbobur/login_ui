@@ -78,7 +78,7 @@ Button {
     contentItem: Text {
         text: control.text
         font: control.font
-        color: StyleSystem.currentStyle === "neumorphic" ? StyleSystem.current().accentColor : "white"
+        color: StyleSystem.currentStyle === "neumorphic" ? StyleSystem.current().accentColor : Qt.lighter(StyleSystem.current().textColor, 1.2)
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }
