@@ -11,6 +11,33 @@ ApplicationWindow {
     height: 640
     title: "Login"
 
+    readonly property var ssoConfig: ({
+        "Google": {
+            mainText: "G",
+            secondaryText: "oogle",
+            color: "#f87e7e",
+            textColor: StyleSystem.current().currentStyle != "glassmorphic" ? "#ffffff" : StyleSystem.current().textColor
+        },
+        "Github": {
+            mainText: "Git",
+            secondaryText: "",
+            color: "#24292e",
+            textColor: "#ffffff"
+        },
+        "Facebook": {
+            mainText: "F",
+            secondaryText: "",
+            color: "#1877F2",
+            textColor: StyleSystem.current().textColor
+        },
+        "X": {
+            mainText: "X",
+            secondaryText: "",
+            color: "#4eb3f1",
+            textColor: StyleSystem.current().textColor
+        }
+    })
+
     function switchStyle(styleName) {
         StyleSystem.switchStyle(styleName)
     }
@@ -103,7 +130,7 @@ ApplicationWindow {
                 Layout.fillWidth: true
                 placeholderText: "Email or Username"
             }
-            
+
             StyledInput {
                 id: passwordInput
                 Layout.fillWidth: true
@@ -124,6 +151,90 @@ ApplicationWindow {
                 text: "Log In"
                 font.bold: true
             }
+
+            // Divider
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: 10
+
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 1
+                    color: StyleSystem.current().textColor
+                    opacity: 0.2
+                }
+
+                Text {
+                    text: "or continue with"
+                    font.family: StyleSystem.current().fontFamily
+                    color: StyleSystem.current().textColor
+                    opacity: 0.6
+                }
+
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 1
+                    color: StyleSystem.current().textColor
+                    opacity: 0.2
+                }
+            }
+
+            // SSO Buttons
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: 10
+                Layout.preferredHeight: 40
+
+                SSOButton {
+                    Layout.fillWidth: true
+                    provider: "Google"
+                    mainText: window.ssoConfig.Google.mainText
+                    secondaryText: window.ssoConfig.Google.secondaryText
+                    backgroundColor: window.ssoConfig.Google.color
+                    textColor: window.ssoConfig.Google.textColor
+                    onClicked: console.log("Google SSO clicked")
+                }
+
+                SSOButton {
+                    Layout.fillWidth: true
+                    provider: "Github"
+                    mainText: window.ssoConfig.Github.mainText
+                    secondaryText: window.ssoConfig.Github.secondaryText
+                    backgroundColor: window.ssoConfig.Github.color
+                    textColor: window.ssoConfig.Github.textColor
+                    onClicked: console.log("Github SSO clicked")
+                }
+
+                SSOButton {
+                    Layout.fillWidth: true
+                    provider: "Facebook"
+                    mainText: window.ssoConfig.Facebook.mainText
+                    secondaryText: window.ssoConfig.Facebook.secondaryText
+                    backgroundColor: window.ssoConfig.Facebook.color
+                    textColor: window.ssoConfig.Facebook.textColor
+                    onClicked: console.log("Facebook SSO clicked")
+                }
+
+                SSOButton {
+                    Layout.fillWidth: true
+                    provider: "X"
+                    mainText: window.ssoConfig.X.mainText
+                    secondaryText: window.ssoConfig.X.secondaryText
+                    backgroundColor: window.ssoConfig.X.color
+                    textColor: window.ssoConfig.X.textColor
+                    onClicked: console.log("X SSO clicked")
+                }
+            }
+
+            // Completely custom
+            // SSOButton {
+            //     Layout.fillWidth: true
+            //     mainText: "Dev"
+            //     secondaryText: "to"
+            //     backgroundColor: "#333333"
+            //     // icon: "qrc:/assets/images/devto.png"
+            //     onClicked: console.log("Custom SSO clicked")
+            // }
         }
     }
 

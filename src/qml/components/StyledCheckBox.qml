@@ -8,9 +8,6 @@ CheckBox {
     
     font.family: StyleSystem.current().fontFamily
     focusPolicy: Qt.StrongFocus
-    leftPadding: 2
-    topPadding: 5
-    bottomPadding: 5
     implicitHeight: 24
 
     background: Rectangle {
