@@ -5,6 +5,7 @@
         <file>src/qml/components/CustomInput.qml</file>
         <file>src/qml/components/StyledInput.qml</file>
         <file>src/qml/components/StyledButton.qml</file>
+        <file>src/qml/components/StyledCheckBox.qml</file>
 
         <file>src/qml/styles/DefaultStyle.qml</file>
         <file>src/qml/styles/qmldir</file>

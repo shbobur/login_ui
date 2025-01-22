@@ -50,10 +50,10 @@ make
 - ✅ Add wasm compilation
 - ✅ Fix styles
 - ✅ Enriched Readme
-- 🌐 Deploy to GitHub Pages
--  fix bash build script
 - 💾 Add save login data to local storage
+- 🌐 Deploy to GitHub Pages
 - 🔑 Add SSO (Google, Facebook, GitHub, etc)
+-  fix bash build script
 - 📱 Mobile friendly UI
 
 ## License

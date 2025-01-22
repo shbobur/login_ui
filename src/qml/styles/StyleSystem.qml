@@ -48,7 +48,7 @@ QtObject {
             shadowColor: "#00000020",
             blurRadius: 10,
             borderWidth: 1,
-            borderColor: "#cece29",
+            borderColor: "#a8a81e",
             fontFamily: "Inter",
             glowColor: "#00FF6666"
         },
