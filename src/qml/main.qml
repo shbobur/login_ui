@@ -51,32 +51,32 @@ ApplicationWindow {
             }
             Action { 
                 text: qsTr("&Modern"); 
-                onTriggered: switchStyle("modern") 
+                onTriggered: window.switchStyle("modern")
                 checkable: true
                 checked: true
                 ActionGroup.group: styleGroup
             }
             Action { 
                 text: qsTr("&Neumorphic"); 
-                onTriggered: switchStyle("neumorphic") 
+                onTriggered: window.switchStyle("neumorphic")
                 checkable: true
                 ActionGroup.group: styleGroup
             }
             Action { 
                 text: qsTr("G&lassmorphic"); 
-                onTriggered: switchStyle("glassmorphic") 
+                onTriggered: window.switchStyle("glassmorphic")
                 checkable: true
                 ActionGroup.group: styleGroup
             }
             Action { 
                 text: qsTr("M&aterial"); 
-                onTriggered: switchStyle("material") 
+                onTriggered: window.switchStyle("material")
                 checkable: true
                 ActionGroup.group: styleGroup
             }
             Action { 
                 text: qsTr("&Gaming"); 
-                onTriggered: switchStyle("gaming") 
+                onTriggered: window.switchStyle("gaming")
                 checkable: true
                 ActionGroup.group: styleGroup
             }
