@@ -7,6 +7,26 @@ GoogleAuth::GoogleAuth(QObject *parent)
     , oauth2(new QOAuth2AuthorizationCodeFlow(this))
     , replyHandler(new QOAuthHttpServerReplyHandler(8080, this))
 {
+    replyHandler->setCallbackText(
+        "<html>"
+        "<head>"
+            "<style>"
+                "body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f0f2f5; }"
+                "h1 { color: #1a73e8; margin-bottom: 20px; }"
+                "p { color: #5f6368; font-size: 18px; }"
+                ".container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block; }"
+            "</style>"
+        "</head>"
+        "<body>"
+            "<div class='container'>"
+                "<h1>Successfully Logged In!</h1>"
+                "<p>You are now logged in to Qt-login-demo app.</p>"
+                "<p>You can safely return to the application.</p>"
+            "</div>"
+        "</body>"
+        "</html>"
+    );
+
     setupOAuth2();
 }
 
@@ -44,6 +64,9 @@ void GoogleAuth::setupOAuth2()
 
             const auto email = object["email"].toString();
             const auto name = object["name"].toString();
+
+            // Use token for authorized requests:
+            // your_api_caller.setBearerToken(m_oauth.token().toLatin1());
 
             emit loginSucceeded(email, name);
             reply->deleteLater();

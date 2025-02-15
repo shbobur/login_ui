@@ -14,7 +14,6 @@ A Qt/QML application demonstrating dynamic UI styling capabilities with multiple
   <img src="screenshots/modern_ui_focus.png" width="200" alt="Modern Style">
   <img src="screenshots/neumorphic_ui_focus.png" width="200" alt="Neumorphic Style">
   <img src="screenshots/game_ui_focus.png" width="200" alt="Gaming Style">
-
 </div>
 
 ## Features
@@ -31,6 +30,28 @@ A Qt/QML application demonstrating dynamic UI styling capabilities with multiple
   - Styled buttons
   - Dynamic color schemes
   - Custom typography
+
+- Google Sign-in Integration:
+  1. Follow [this post](https://www.auronsoftware.com/kb/general/miscellaneous/google-oauth2-how-to-setup-a-client-id-for-use-in-desktop-software/) to create OAuth 2.0 credentials
+     - Create a new project or select existing one
+     - Configure OAuth consent screen
+     - Create OAuth 2.0 Client ID
+
+  2. Open `src/oauth/googleauth.h` and replace the credentials:
+     ```cpp
+     const QString clientId = "your-client-id-here";
+     const QString clientSecret = "your-client-secret-here";
+     ```
+  3. Run the app and click the "Google" button
+     <div align="center">
+      <img src="screenshots/google_sign_in_1.png" width="200" alt="Google Sign-in Page">
+      <img src="screenshots/google_sign_in_2.png" width="200" alt="Google Sign-in Page">
+      <img src="screenshots/google_sign_in_3.png" width="200" alt="Google Sign-in Page">
+     </div>
+  4. After successful authentication:
+     <div align="center">
+       <img src="screenshots/google_sign_in_success_result.png" width="200" alt="Successful Sign-in">
+     </div>
 
 ## Build Instructions
 
@@ -97,7 +118,10 @@ If you encounter "Could not find a package configuration file provided by Qt6", 
 - ✅ Add save login data checkbox
 - ✅ Add SSO (Google, Facebook, GitHub, etc) buttons
 - ✅ Fix bash build script
-- 🔑 Add Google SignIn
+- ✅ Add Google SignIn
+- 🔑 Add GitHub SignIn
+- 🔑 Add Facebook SignIn
+- 🔑 Add X SignIn
 - 🌐 Deploy to GitHub Pages
 - 📱 Mobile friendly UI
 

@@ -28,9 +28,9 @@ ApplicationWindow {
         },
         "Facebook": {
             mainText: "F",
-            secondaryText: "",
-            color: "#1877F2",
-            textColor: StyleSystem.current().textColor
+            secondaryText: "acebook",
+            color: "#3a86e9",
+            textColor: "#ffffff"
         },
         "X": {
             mainText: "X",
