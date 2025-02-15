@@ -3,12 +3,14 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import "components"
 import "styles"
+import com.login_app.oauth 1.0
+import QtQuick.Dialogs
 
 ApplicationWindow {
     id: window
     visible: true
     width: 420
-    height: 640
+    height: 720
     title: "Login"
 
     readonly property var ssoConfig: ({
@@ -192,7 +194,7 @@ ApplicationWindow {
                     secondaryText: window.ssoConfig.Google.secondaryText
                     backgroundColor: window.ssoConfig.Google.color
                     textColor: window.ssoConfig.Google.textColor
-                    onClicked: console.log("Google SSO clicked")
+                    onClicked: googleAuth.startLogin()
                 }
 
                 SSOButton {
@@ -238,4 +240,28 @@ ApplicationWindow {
         }
     }
 
+    // Remove the old dialog definitions and add these:
+    LoginDialog {
+        id: successDialog
+        isError: false
+    }
+
+    LoginDialog {
+        id: errorDialog
+        isError: true
+    }
+
+    GoogleAuth {
+        id: googleAuth
+        onLoginSucceeded: function(email, name) {
+            console.log("Login succeeded for:", email, name)
+            successDialog.message = "Welcome " + name + "!\nLogged in with: " + email
+            successDialog.open()
+        }
+        onLoginFailed: function(error) {
+            console.log("Login failed:", error)
+            errorDialog.message = "Login failed: " + error
+            errorDialog.open()
+        }
+    }
 }
