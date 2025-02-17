@@ -19,8 +19,10 @@ find_package(Qt6 REQUIRED COMPONENTS
 
 set(PROJECT_SOURCES
     src/main.cpp
-    src/oauth/googleauth.h
     src/oauth/googleauth.cpp
+    src/oauth/googleauth.h
+    src/oauth/githubauth.cpp
+    src/oauth/githubauth.h
     resources.qrc
 )
 

@@ -119,12 +119,14 @@ If you encounter "Could not find a package configuration file provided by Qt6", 
 - ✅ Add SSO (Google, Facebook, GitHub, etc) buttons
 - ✅ Fix bash build script
 - ✅ Add Google SignIn
-- 🔑 Add GitHub SignIn
+- ✅ Add GitHub SignIn
 - 🔑 Add Facebook SignIn
 - 🔑 Add X SignIn
-- 🌐 Deploy to GitHub Pages
+- 🔐 Add Encrypted secrets store
 - 📱 Mobile friendly UI
+- 🌐 Deploy to GitHub Pages
+- 🎨 Add more styles, examples: https://freefrontend.com/css-login-forms/
 
 ## License
 
-MIT License
+Apache-2.0

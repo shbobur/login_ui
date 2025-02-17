@@ -204,7 +204,7 @@ ApplicationWindow {
                     secondaryText: window.ssoConfig.Github.secondaryText
                     backgroundColor: window.ssoConfig.Github.color
                     textColor: window.ssoConfig.Github.textColor
-                    onClicked: console.log("Github SSO clicked")
+                    onClicked: githubAuth.startLogin()
                 }
 
                 SSOButton {
@@ -261,6 +261,21 @@ ApplicationWindow {
         onLoginFailed: function(error) {
             console.log("Login failed:", error)
             errorDialog.message = "Login failed: " + error
+            errorDialog.open()
+        }
+    }
+
+    // Add GithubAuth handler after GoogleAuth
+    GithubAuth {
+        id: githubAuth
+        onLoginSucceeded: function(username, name) {
+            console.log("Github login succeeded for:", username, name)
+            successDialog.message = "Welcome " + name + "!\nLogged in with Github as: " + username
+            successDialog.open()
+        }
+        onLoginFailed: function(error) {
+            console.log("Github login failed:", error)
+            errorDialog.message = "Github login failed: " + error
             errorDialog.open()
         }
     }

@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
 #include "oauth/googleauth.h"
+#include "oauth/githubauth.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,8 +12,9 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.addImportPath("qrc:/src/qml");
 
-    // Register GoogleAuth type
+    // Register auth types
     qmlRegisterType<GoogleAuth>("com.login_app.oauth", 1, 0, "GoogleAuth");
+    qmlRegisterType<GithubAuth>("com.login_app.oauth", 1, 0, "GithubAuth");
 
     const QUrl url(QStringLiteral("qrc:/src/qml/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

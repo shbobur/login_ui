@@ -26,8 +26,8 @@ private:
     
     QOAuth2AuthorizationCodeFlow *oauth2;
     QOAuthHttpServerReplyHandler *replyHandler;
-    const QString clientId = "YOUR_CLIENT_ID";  // Replace with your Google OAuth client ID
-    const QString clientSecret = "YOUR_CLIENT_SECRET";  // Replace with your Google OAuth client secret
+    const QString clientId = "your_client_id";
+    const QString clientSecret = "your_client_secret";
     const QUrl authEndpoint{"https://accounts.google.com/o/oauth2/v2/auth"};
     const QUrl tokenEndpoint{"https://oauth2.googleapis.com/token"};
 };
