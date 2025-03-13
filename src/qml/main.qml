@@ -214,7 +214,7 @@ ApplicationWindow {
                     secondaryText: window.ssoConfig.Facebook.secondaryText
                     backgroundColor: window.ssoConfig.Facebook.color
                     textColor: window.ssoConfig.Facebook.textColor
-                    onClicked: console.log("Facebook SSO clicked")
+                    onClicked: facebookAuth.startLogin()
                 }
 
                 SSOButton {
@@ -276,6 +276,20 @@ ApplicationWindow {
         onLoginFailed: function(error) {
             console.log("Github login failed:", error)
             errorDialog.message = "Github login failed: " + error
+            errorDialog.open()
+        }
+    }
+
+    FacebookAuth {
+        id: facebookAuth
+        onLoginSucceeded: function(email, name) {
+            console.log("Facebook login succeeded for:", email, name)
+            successDialog.message = "Welcome " + name + "!\nLogged in with: " + email
+            successDialog.open()
+        }
+        onLoginFailed: function(error) {
+            console.log("Facebook login failed:", error)
+            errorDialog.message = "Facebook login failed: " + error
             errorDialog.open()
         }
     }

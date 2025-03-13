@@ -123,8 +123,8 @@ If you encounter "Could not find a package configuration file provided by Qt6", 
 - 🔑 Add Facebook SignIn
 - 🔑 Add X SignIn
 - 🔐 Add Encrypted secrets store
-- 📱 Mobile friendly UI
-- 🌐 Deploy to GitHub Pages
+- 📱 Mobile app: make it work on mobile, all features
+- 🌐 Deploy to GitHub Pages (wasm)
 - 🎨 Add more styles, examples: https://freefrontend.com/css-login-forms/
 
 ## License

@@ -4,8 +4,7 @@ build/*
 .vscode/
 
 # OAuth
-config/client_secret_github.json
-config/client_secret_1020956970513-iefn1ke9b0cigilrmnro4496frgu821d.apps.googleusercontent.com.json
+config/*
 
 # C++ objects and libs
 *.slo

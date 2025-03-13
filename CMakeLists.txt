@@ -23,6 +23,8 @@ set(PROJECT_SOURCES
     src/oauth/googleauth.h
     src/oauth/githubauth.cpp
     src/oauth/githubauth.h
+    src/oauth/facebookauth.cpp
+    src/oauth/facebookauth.h
     resources.qrc
 )
 

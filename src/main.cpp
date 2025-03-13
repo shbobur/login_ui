@@ -3,6 +3,7 @@
 #include <QQuickStyle>
 #include "oauth/googleauth.h"
 #include "oauth/githubauth.h"
+#include "oauth/facebookauth.h"
 
 int main(int argc, char *argv[])
 {
@@ -15,6 +16,7 @@ int main(int argc, char *argv[])
     // Register auth types
     qmlRegisterType<GoogleAuth>("com.login_app.oauth", 1, 0, "GoogleAuth");
     qmlRegisterType<GithubAuth>("com.login_app.oauth", 1, 0, "GithubAuth");
+    qmlRegisterType<FacebookAuth>("com.login_app.oauth", 1, 0, "FacebookAuth");
 
     const QUrl url(QStringLiteral("qrc:/src/qml/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
