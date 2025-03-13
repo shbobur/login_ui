@@ -1,32 +1,23 @@
 #ifndef GITHUBAUTH_H
 #define GITHUBAUTH_H
 
-#include <QObject>
-#include <QOAuth2AuthorizationCodeFlow>
-#include <QOAuthHttpServerReplyHandler>
-#include <QNetworkAccessManager>
-#include <QJsonDocument>
-#include <QDesktopServices>
+#include "oauthbase.h"
 
-class GithubAuth : public QObject
+class GithubAuth : public OAuthBase
 {
     Q_OBJECT
 
 public:
     explicit GithubAuth(QObject *parent = nullptr);
-    ~GithubAuth();
-    Q_INVOKABLE void startLogin();
 
-signals:
-    void loginSucceeded(const QString &username, const QString &name);
-    void loginFailed(const QString &error);
+protected:
+    void setupProvider() override;
+    QUrl userInfoEndpoint() const override;
+    QString extractId(const QJsonObject &object) const override;
+    QString extractName(const QJsonObject &object) const override;
+    QString getCallbackHtml() const override;
 
 private:
-    void setupOAuth2();
-    
-    QOAuth2AuthorizationCodeFlow *oauth2;
-    QOAuthHttpServerReplyHandler *replyHandler;
-    // Replace these with your GitHub OAuth App credentials
     const QString clientId = "your-github-client-id";
     const QString clientSecret = "your-github-client-secret";
     const QUrl authEndpoint{"https://github.com/login/oauth/authorize"};

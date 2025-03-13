@@ -1,35 +1,26 @@
 #ifndef FACEBOOKAUTH_H
 #define FACEBOOKAUTH_H
 
-#include <QObject>
-#include <QOAuth2AuthorizationCodeFlow>
-#include <QOAuthHttpServerReplyHandler>
-#include <QNetworkAccessManager>
-#include <QJsonDocument>
-#include <QDesktopServices>
-#include <QFile>
+#include "oauthbase.h"
 
-class FacebookAuth : public QObject
+class FacebookAuth : public OAuthBase
 {
     Q_OBJECT
 
 public:
     explicit FacebookAuth(QObject *parent = nullptr);
-    ~FacebookAuth();
-    Q_INVOKABLE void startLogin();
 
-signals:
-    void loginSucceeded(const QString &userId, const QString &name);
-    void loginFailed(const QString &error);
+protected:
+    void setupProvider() override;
+    QUrl userInfoEndpoint() const override;
+    QString extractId(const QJsonObject &object) const override;
+    QString extractName(const QJsonObject &object) const override;
+    QUrlQuery userInfoParameters() const override;
+    QString getCallbackHtml() const override;
 
 private:
-    void setupOAuth2();
-    void loadCredentials();
-    
-    QOAuth2AuthorizationCodeFlow *oauth2;
-    QOAuthHttpServerReplyHandler *replyHandler;
-    QString clientId = "";
-    QString clientSecret = "";
+    const QString clientId = "";
+    const QString clientSecret = "";
     const QUrl authEndpoint{"https://www.facebook.com/v22.0/dialog/oauth"};
     const QUrl tokenEndpoint{"https://graph.facebook.com/v22.0/oauth/access_token"};
 };

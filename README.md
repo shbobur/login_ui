@@ -5,12 +5,6 @@ A Qt/QML application demonstrating dynamic UI styling capabilities with multiple
 ## Style Examples
 
 <div align="center">
-  <img src="screenshots/modern_ui.png" width="200" alt="Modern Style">
-  <img src="screenshots/neumorphic_ui.png" width="200" alt="Neumorphic Style">
-  <img src="screenshots/game_ui.png" width="200" alt="Gaming Style">
-</div>
-
-<div align="center">
   <img src="screenshots/modern_ui_focus.png" width="200" alt="Modern Style">
   <img src="screenshots/neumorphic_ui_focus.png" width="200" alt="Neumorphic Style">
   <img src="screenshots/game_ui_focus.png" width="200" alt="Gaming Style">
@@ -120,7 +114,7 @@ If you encounter "Could not find a package configuration file provided by Qt6", 
 - ✅ Fix bash build script
 - ✅ Add Google SignIn
 - ✅ Add GitHub SignIn
-- 🔑 Add Facebook SignIn
+- ✅ Add Facebook SignIn
 - 🔑 Add X SignIn
 - 🔐 Add Encrypted secrets store
 - 📱 Mobile app: make it work on mobile, all features
